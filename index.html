@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <script>
+
+        function handleButton() {
+
+            var my_text = document.getElementById('my_text').value
+
+            console.log(my_text)
+
+        }
+    </script>
+
+<style>
+        #my_button {
+            background-color: rgb(72, 34, 177);
+            /* Green */
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <input type="checkbox" value="phone" id="my_check" /> do you want a phone
+
+    <input type="text" id="my_text" size="30" />
+    <br /><br />
+
+    <input type="button" value="click me" id="my_button" onclick="handleButton()" />
+
+
+</body>
+
+</html>
