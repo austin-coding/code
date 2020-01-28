@@ -6,14 +6,14 @@
     <script>
 
         function handleButton() {
+            var my_text = document.getElementById('my_new_name').value
+            var starbucks = document.getElementById('starbucks').value
+            var coffee = document.getElementById('my_check').checked
 
-            var my_text = document.getElementById('my_text').value
-
-            console.log(my_text)
-
+            console.log({my_text,starbucks,coffee })
         }
     </script>
-I was here, and so were you!
+
 <style>
         #my_button {
             background-color: rgb(72, 34, 177);
@@ -33,7 +33,8 @@ I was here, and so were you!
 
     <input type="checkbox" value="phone" id="my_check" /> do you want a phone
 
-    <input type="text" id="my_text" size="30" />
+    <input type="text" id="starbucks" size="24" />
+    <input type="text" id="my_new_name" size="30" />
     <br /><br />
 
     <input type="button" value="click me" id="my_button" onclick="handleButton()" />
