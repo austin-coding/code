@@ -2,25 +2,49 @@
 
 <head>
     <script>
+        function removeItem(item_id) {
+            var item = document.getElementById('todo_item_' + item_id)
+            item.parentNode.removeChild(item)
+
+            var num_items = document.getElementById("num_items").innerHTML
+            num_items = parseInt(num_items)
+            num_items = num_items - 1
+            document.getElementById("num_items").innerHTML = num_items
+        }
+
+        function addItem() {
+            // Grab and increment the value of num_items i.e. the number of todo items in the list
+            var num_items = document.getElementById("num_items").innerHTML
+            num_items = parseInt(num_items)
+            num_items = num_items + 1
+            document.getElementById("num_items").innerHTML = num_items
+
+            // Create the todo entry on the page with the x button
+            var todo_input = document.getElementById("todo_input").value
+            console.log(todo_input)
+            var div = document.getElementById("todo_items")
+            div.innerHTML += '<div id="todo_item_' + num_items + '" class="alert alert-success">' + todo_input + '<input type="button" value="x" onclick="removeItem(' + num_items + ')"> </div>'
+        }
     </script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <style>
         body {
             padding: 50px;
-            background-color:gray
+            background-color: gray
         }
     </style>
-    
+
 </head>
 
 
 <body>
-    <h3>ToDoList App</h3>
-    <input type="text" size=50 id="todo_input" placeholder="enter to do">
-    <input type="button" id="todo_button" value="add item" class="btn btn-primary">
-    <hr/>
+    <h3>ToDoList App <span id="num_items">0</span> items</h3>
 
+    <input type="text" size=50 id="todo_input" placeholder="enter to do">
+    <input type="button" id="todo_button" value="add item" class="btn btn-primary" onclick="addItem()">
+    <hr />
+    <div id="todo_items"></div>
 </body>
 
 </html>
