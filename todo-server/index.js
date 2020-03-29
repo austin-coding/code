@@ -17,10 +17,13 @@ app.use(bodyParser.json())
 app.get('/', (req, res) => {
     res.send('Hi I am here!')
 });
+app.get('/dog', (req, res) => {
+    res.send('Hi dog is here!')
+});
 
 app.get('/users', (req, res) => {
 
-    connection.connect(function (err) {
+    connection.connect((err) => {
         if (err) {
             return console.error('error: ' + err.message);
         }
@@ -30,18 +33,43 @@ app.get('/users', (req, res) => {
 
     let sql = "select * from users"
 
-    connection.query(sql, function (err, result) {
+    connection.query(sql, (err, result) => {
         if (err) throw err;
         res.json(result)
     });
 
+});
+app.get('/tasks', (req, res) => {
 
+    connection.connect((err) => {
+        if (err) {
+            return console.error('error: ' + err.message);
+        }
 
+        console.log('Connected to the MySQL server.');
+    });
 
+    let sql = "select * from tasks"
+
+    connection.query(sql, (err, result) => {
+        if (err) throw err;
+        res.json(result)
+    });
 });
 
 app.get('/time', (req, res) => {
-    res.send("current time")
+    // new Date object
+    let date_ob = new Date();
+    let my_time = date_ob.toTimeString()
+    
+    let another_date = new Date();
+    let another_time = another_date.getHours() + '---' + another_date.getMinutes() + '---' +another_date.getSeconds()
+    
+    res.json({
+        "my_time" : my_time,
+        "another_time": another_time
+    })
+
 })
 
 
@@ -64,14 +92,13 @@ app.post('/login', (req, res) => {
 
     const username = req.body.username
     const password = req.body.password
-    const sql = 'select id,name from users where username="' + username + '" and password="' + password + '"'
-
+    
+    const sql = 'select * from users where username="' + username + '" and password="' + password + '"'
 
     connection.connect(function (err) {
         if (err) {
             return console.error('error: ' + err.message);
         }
-
         console.log('Connected to the MySQL server.');
     });
 
@@ -80,11 +107,13 @@ app.post('/login', (req, res) => {
             throw err
         }
 
-        if (result && result.length > 0) {
-
+        // a user was found
+        if (result.length > 0) {
             res.json({
-                "user": result[0]
+                "user": result[0],
+                "sql": sql
             })
+            // a user was not found
         } else {
             res.json({
                 "user": null
