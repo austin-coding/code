@@ -39,6 +39,8 @@ app.get('/users', (req, res) => {
     });
 
 });
+
+// Route definition
 app.get('/tasks', (req, res) => {
 
     connection.connect((err) => {
@@ -49,8 +51,11 @@ app.get('/tasks', (req, res) => {
         console.log('Connected to the MySQL server.');
     });
 
+    // define a variable called `sql` that will hold the SQL query
     let sql = "select * from tasks"
-
+    console.log({sql})
+    // The connection variable is an object of type Connection. 
+    // This connection object has methods, which allow you to connect to the DB
     connection.query(sql, (err, result) => {
         if (err) throw err;
         res.json(result)
