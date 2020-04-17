@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>HTML Code</title>
+</head>
+
+<body>
+    <h1>HTML CODE:</h1>
+    <p>This is what i've learned so far about HTML.</p>
+
+    <hr>
+
+    <h1>POSTING A LINK IN HTML:</h1>
+    <p>Links are defined with the "a" tag</p>
+    <p>Links are specified by the "href" attribute. </p>
+    <p>Attributes are used to prvoide information about the HTML element.</p>
+    <a href="https://www.youtube.com">Click here</a>
+
+    <hr>
+
+    <h1>POSTING IMAGES ON WEB PAGES:</h1>
+    <p>the "img" tag is used to post images</p>
+    <p>"src" (source file) is the name of the file</p>
+    <p>"alt" (alternative link) provides text information for images that can't be displayed.</p>
+    <p>"width" and "height" are specified in pixels by default.</p>
+    
+    <br>
+    <p>Below is an image of a happy face.</p>
+    <br>
+
+    <img src="happy face.png" alt="Happy face" width="120" height="120">
+
+    <hr>
+
+    <h1>BUTTONS:</h1>
+    <p>Below is a button I created that displays the current day, date, and time.</p>
+    <p>If you keep clicking the button, the current time will change.</p>
+    <button onclick="getElementById('time').innerHTML=Date()">What is the time?</button>
+
+    <p id="time"></p>
+
+    <hr>
+
+    <h1>BULLET & NUMBERED LIST:</h1>
+    <p>Here's an example of an bullet list:</p>
+    <ul>
+        <li>Eggs</li>
+        <li>Bacon</li>
+        <li>Orange Juice</li>
+        <li>Milk</li>
+
+    </ul>
+    <p>Here's an example of an numbered list</p>
+    <ol>
+        <li>Water</li>
+        <li>Tea</li>
+        <li>Coffee</li>
+        <li>Detergent</li>
+    </ol>
+
+    <hr>
+
+    <h1>THE STYLE ATTRIBUTE:</h1>
+    <p>With the style attribute, you can change the text size, color, etc. </p>
+    <p style="color:green">The is an example of colored text.</p>
+
+    <br>
+
+    <h2>SIZE OF TEXT:</h2>
+    <p>Here, i changed the size of the text.</p>
+    <p style="font-size:50px;">The style attribute can change the size of the text.</p>
+
+    <hr>
+
+    <h1>JAVASCRIPT CODE:</h1>
+    <p>Below is what i've learned so far about JavaScript.</p>
+
+    <hr>
+
+    <h1>CHANGING HTML CONTENT:</h1>
+    <p>Below is a button i created. When you click it, the text changes.</p>
+    <p id="example">Click here.</p>
+
+    <button type="button" onclick='document.getElementById("example").innerHTML = "See, it changed!"'>Click
+        Here</button>
+
+    <hr>
+
+    <h1>USING INNER.HTML:</h1>
+    <p>inner.html defines the html content. In the editor, inner.html is assigned to 5 + 6.
+        <p>You'll only see the results on the web page.</p>
+    </p>
+
+    <p id="example2"></p>
+
+    <script>
+        document.getElementById("example2").innerHTML = 5 + 6;
+    </script>
+
+    <hr>
+
+    <h1>USING CONSOLE.LOG:</h1>
+    <p>console.log() is used for debugging purposes.</p>
+    <p>In the editor, console.log is assigned to "10 + 14"</p>
+    <p>You will only see the results if you run it in the console on the web browser.</p>
+
+    <script>
+        console.log(10 + 14);
+    </script>
+
+    <hr>
+
+    <h1>VARIABLES:</h1>
+    <p>Varibles are containters that store data.</p>
+    <p>x, y, and z are varibles.</p>
+    <p> In the editor, x is assigned to 30, y is assigned to 39 where the value of z is:</p>
+    <p id="example3"></p>
+
+    <script>
+    var x = 30;
+    var y = 39;
+    var z = x + y;
+    document.getElementById("example3").innerHTML =
+    "The value of z is: " + z;
+    </script>
+
+    
+
+
+
+
+
+
+
+
+
+
+</body>
+
+</html>
