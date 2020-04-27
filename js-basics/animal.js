@@ -3,7 +3,7 @@ class Animal {
     constructor(name, species, age){
         this.name = name;
         this.species = species;
-        this.age = age;
+        this.age = age; 
     }
 
     isAnimalYoung(){
@@ -13,8 +13,19 @@ class Animal {
             return 'no this animal is old af'
         }
     }
+
+    getAsJson(){
+        return JSON.stringify(this);
+    }
+
 }
 
-let leo = new Animal('leo', 'bold stripe leopard gecko', '10')
-console.log({leo})
-console.log(leo.isAnimalYoung())
+// leo is an object
+// leo is an instance of the class Animal
+let leo = new Animal('leo', 'bold stripe leopard gecko', '9')
+console.log(leo.getAsJson())
+// console.log({leo})
+// console.log(leo.isAnimalYoung())
+
+let max = new Animal('max', 'dog', 8);
+console.log(max.getAsJson())
