@@ -87,6 +87,7 @@ app.get('/time', (req, res) => {
 // make sure the GET /todos endpoint shows the newly created item you added
 app.post('/create-todo', (req, res) => {
     var todoItem = req.body.item
+    var todoItem = req.body.userId
     res.send('Adding item: ' + todoItem)
 })
 
