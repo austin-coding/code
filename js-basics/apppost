@@ -1,0 +1,21 @@
+app.post('/create-todo', (req, res) => {
+    var todoList = req.body.todo_list
+    var userId = req.body.user_id
+    var myName = req.body.my_name
+    var sql = 'INSERT INTO `todo`.`tasks` (`todo_list`, `date_created`, `user_id`) VALUES ("' + todoList + '", NOW(), "' + userId + '");'
+    connection.connect((err) => {
+        if (err) {
+            return console.error('error: ' + err.message);
+        }
+        console.log('Connected to the MySQL server.');
+    });
+
+    connection.query(sql, (err, result) => {
+        if (err) {
+            throw err
+        }
+        res.send(result)
+
+
+
+    });

@@ -22,24 +22,28 @@ app.get('/dog', (req, res) => {
     res.send('Hi dog is here!')
 });
 
-app.get('/users', (req, res) => {
-
+app.post('/create-user', (req, res) => {
+    var name = req.body.name 
+    var username = req.body.username
+    var password = req.body.password
+    var sql = 'INSERT INTO todo.users (name, username, password) VALUES ("'+name+'", "'+username+'", "'+password+'")' 
     connection.connect((err) => {
         if (err) {
             return console.error('error: ' + err.message);
+        } else {
+            console.log('Connected to the MySQL server.');
         }
 
-        console.log('Connected to the MySQL server.');
     });
+    connection.query(sql, (err,result) => {
+        if (err) {
+            throw err
+        }
+        res.send(result)
+    })
+    
 
-    let sql = "select * from users"
-
-    connection.query(sql, (err, result) => {
-        if (err) throw err;
-        res.json(result)
-    });
-
-});
+}) 
 
 // Route definition
 app.get('/tasks', (req, res) => {
@@ -86,12 +90,27 @@ app.get('/time', (req, res) => {
 // create a sql INSERT query as we did in postman 
 // make sure the GET /todos endpoint shows the newly created item you added
 app.post('/create-todo', (req, res) => {
-    var todoItem = req.body.item
-    var todoItem = req.body.userId
-    res.send('Adding item: ' + todoItem)
+    var todoList = req.body.todo_list
+    var userId = req.body.user_id
+    var myName = req.body.my_name
+    var sql = 'INSERT INTO `todo`.`tasks` (`todo_list`, `date_created`, `user_id`) VALUES ("'+todoList+'", NOW(), "'+userId+'");'
+    connection.connect((err) => {
+        if (err) {
+            return console.log('error ' + err.message);
+        }
+        console.log('Connected to MySQL server ');
+    
+    });
+    
+    
+    connection.query(sql, (err,result) => {
+        if (err) {
+            throw err
+        }
+        res.send(result)
+    })
+
 })
-
-
 
 app.post('/login', (req, res) => {
 
