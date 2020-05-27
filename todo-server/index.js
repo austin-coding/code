@@ -14,6 +14,9 @@ const connection = mysql.createConnection({
 
 app.use(bodyParser.json())
 
+var cors = require('cors');
+app.use(cors());
+
 app.get('/', (req, res) => {
     res.send('Hi I am here!')
 });
@@ -90,6 +93,7 @@ app.get('/time', (req, res) => {
 // create a sql INSERT query as we did in postman 
 // make sure the GET /todos endpoint shows the newly created item you added
 app.post('/create-todo', (req, res) => {
+    // res.header("Access-Control-Allow-Origin", "*")
     var todoList = req.body.todo_list
     var userId = req.body.user_id
     var myName = req.body.my_name

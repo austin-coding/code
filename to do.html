@@ -1,6 +1,7 @@
 <html>
 
 <head>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script>
         function removeItem(item_id) {
             var item = document.getElementById('todo_item_' + item_id)
@@ -24,7 +25,28 @@
             console.log(todo_input)
             var div = document.getElementById("todo_items")
             div.innerHTML += '<div id="todo_item_' + num_items + '" class="alert alert-success">' + todo_input + '<input type="button" value="x" onclick="removeItem(' + num_items + ')"> </div>'
+            $.ajax({
+                type: "POST",
+                contentType: "application/json",
+                url: "http://localhost:3000/create-todo",
+                data: {
+                    user_id: 1,
+                    todo_list: todo_input
+                },
+                dataType: "json"
+            });
+            
         }
+        $("button").click(function () {
+            $.post("demo_test_post.asp",
+                {
+                    name: "Donald Duck",
+                    city: "Duckburg"
+                },
+                function (data, status) {
+                    alert("Data: " + data + "\nStatus: " + status);
+                });
+        });
     </script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
