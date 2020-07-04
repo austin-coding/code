@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+
+    <h1>ARRAYS:</h1>
+
+    <p id="demo"></p>
+    <p id="demo2"></p>
+    <p id="demo3"></p>
+    <p id="demo4"></p>
+    <p id="demo5"></p>
+    <p id="demo6"></p>
+    <p id="demo7"></p>
+    <p id="demo8"></p>
+    <p id="demo9"></p>
+    <p id="demo10"></p>
+    <p id="demo11"></p>
+    <p id="demo12"></p>
+
+    <button onclick="myFunction()">Click Here</button>
+
+    <script>
+        // Getting the whole array
+        var animals = ["Monkey", "Zebra", "Lion", "Giraffe"];
+        document.getElementById("demo").innerHTML = animals;
+    </script>
+
+
+    <script>
+        // Getting the first index 
+        var cars = ["Toyota", "Volkswagen", "Hyundai", "Ford", "Chevrolet"];
+        document.getElementById("demo2").innerHTML = cars[1];
+    </script>
+
+
+    <script>
+        // Changing an element 
+        var colors = ["Red", "Blue", "Yellow", "Orange"];
+        colors[3] = "Green";
+        document.getElementById("demo3").innerHTML = colors;
+    </script>
+
+
+    <script>
+        // Returns the first index
+        var person = ["John", "Smith", 50];
+        document.getElementById("demo4").innerHTML = person[0];
+    </script>
+
+
+    <script>
+        // Returns the persons last name
+        var person = { firstName: "John", lastName: "Smith", age: 50 };
+        document.getElementById("demo5").innerHTML = person["lastName"];
+    </script>
+
+
+    <script>
+        // Getting the length of the array
+        var shapes = ["Circle", "Triangle", "Square"];
+        document.getElementById("demo6").innerHTML = shapes.length;
+    </script>
+
+
+    <script>
+        // Returns the first index
+        var states = ["Texas", "Florida", "New York", "Washington", "Colorado"];
+        var first = states[0];
+        document.getElementById("demo7").innerHTML = states[0];
+    </script>
+
+
+    <script>
+        // Returns the last index
+        var states = ["Texas", "Florida", "New York", "Washington", "Colorado"];
+        var last = states[4];
+        document.getElementById("demo8").innerHTML = states[states.length - 1];
+    </script>
+
+
+    <script>
+        // Adding elements to an array with "push"
+        var items = ["Shampoo", "Paper Towels", "Dog Food", "Milk"];
+        document.getElementById("demo9").innerHTML = items;
+
+        function myFunction() {
+            items.push("Eggs");
+            document.getElementById("demo9").innerHTML = items;
+        }
+    </script>
+
+
+    <script>
+        // Arrays always use numbered indexes
+        var color = [];
+        color[0] = "Red";
+        color[1] = "Blue";
+        color[2] = "Green";
+        document.getElementById("demo10").innerHTML = color[0] + " " + color.length;
+    </script>
+
+
+    <script>
+        // Returns true or false if the object is an array
+        var animal = ["Lion", "Bear", "Tiger"];
+        document.getElementById("demo11").innerHTML = Array.isArray(animal);
+    </script>
+
+
+    <script>
+        // Returns the array as an object
+        var fruits = ["Banana", "Orange", "Apple", "Mango"];
+        document.getElementById("demo12").innerHTML = typeof fruits;
+    </script>
+
+
+    <script>
+        // Another way to check if the object is an array
+        var fruits = ["Banana", "Orange", "Apple", "Mango"];
+        document.getElementById("demo").innerHTML = fruits instanceof Array;
+    </script>
+</body>
+
+</html>
