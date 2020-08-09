@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+
+    <p>Creates a new array by performing a function on each array element.</p>
+
+    <p>Subtracts each array value by 3</p>
+
+    <p id="example"></p>
+
+    <script>
+        var numbers = [16, 3, 45, 9, 25];
+        var numbers2 = numbers.map(myFunction);
+
+        document.getElementById("example").innerHTML = numbers2;
+
+        function myFunction(value) {
+            return value - 3;
+        }  
+    </script>
+
+</body>
+
+</html>

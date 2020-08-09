@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+    <p>The find() method returns the value of the first array element that passes a test function.</p>
+    
+    <p id="example"></p>
+    
+    <script>
+        var numbers = [24, 36, 18, 9, 66];
+        var first = numbers.find(myFunction);
+        document.getElementById("example").innerHTML = "First number over 20 is " + first;
+
+        function myFunction(value){
+            return value > 20
+        }
+    </script>
+
+</body>
+
+</html>

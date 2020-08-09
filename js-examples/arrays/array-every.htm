@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+    <p>The every() method checks if all array values pass a test.</p>
+
+    <p id="example"></p>
+
+    <script>
+        var numbers = [22, 45, 64, 96, 53];
+
+        var allOver50 = numbers.every(myFunction);
+
+        document.getElementById("example").innerHTML = "All over 50 is " +
+            allOver50;
+
+        function myFunction(value) {
+            return value > 50;
+        }
+    </script>
+</body>
+
+</html>

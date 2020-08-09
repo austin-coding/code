@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+    <p>The findIndex() method returns the index of the first array element that passes a test function.</p>
+   
+    <p id="example"></p>
+   
+   <script>
+        var numbers = [6, 23, 14, 35, 50];
+        var first = numbers.findIndex(myFunction);
+
+        document.getElementById("example").innerHTML = "First number over 18 has index " + first;
+
+        function myFunction(value) {
+            return value > 18;
+        }
+    </script>
+
+</body>
+
+</html>
